@@ -10,13 +10,15 @@ public class ReversePolishNotationCalculatorTest {
     @Test
     public void shouldCalculateAddition() {
         ReversePolishNotationCalculator calculator = new ReversePolishNotationCalculator();
+
+
         assertEquals(9, calculator.calculatePolishNotation("4 5 +"), "Сложение работает некорректно");
         assertEquals(1, calculator.calculatePolishNotation("5 4 -"), "Вычитание  работает некорректно");
         assertEquals(20, calculator.calculatePolishNotation("4 5 *"), "Умножение работает некорректно");
         assertEquals(20, calculator.calculatePolishNotation("4   5    *"), "Некорректно обрабатывает" +
                 " произвольное кол-во пробелов");
-        assertEquals(4, calculator.calculatePolishNotation("1 2 3 4 5 - + * *"), "Не проходит " +
-                "выполнение всех операций");
+        assertEquals(-8, calculator.calculatePolishNotation("1 -2 3 4 -5 + - * *"), "Не проходит " +
+                "выполнение с отрицательным числом");
 
 
     }
